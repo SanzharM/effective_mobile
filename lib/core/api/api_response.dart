@@ -18,26 +18,24 @@ class ApiResponse {
   });
 }
 
-class MainScreenResponse {
+class MainScreenResponse extends ApiResponse {
   final List<HotSale>? hotSales;
   final List<BestSeller>? bestSellers;
-  final String? error;
 
-  // const MainScreenResponse({this.hotSales, this.bestSellers, String? error, bool isSuccess = false, int? statusCode})
-  //     : super(statusCode: statusCode, isSuccess: isSuccess, error: error);
-  const MainScreenResponse({this.hotSales, this.bestSellers, this.error});
+  const MainScreenResponse({this.hotSales, this.bestSellers, String? error, bool isSuccess = false, int? statusCode})
+      : super(statusCode: statusCode, isSuccess: isSuccess, error: error);
 }
 
-class ProductDetailsResponse {
+class ProductDetailsResponse extends ApiResponse {
   final ProductDetail? product;
-  final String? error;
 
-  const ProductDetailsResponse({this.product, this.error});
+  const ProductDetailsResponse({this.product, String? error, bool isSuccess = false, int? statusCode})
+      : super(statusCode: statusCode, isSuccess: isSuccess, error: error);
 }
 
-class CartResponse {
+class CartResponse extends ApiResponse {
   final Cart? cart;
-  final String? error;
 
-  const CartResponse({this.cart, this.error});
+  const CartResponse({this.cart, String? error, bool isSuccess = false, int? statusCode})
+      : super(statusCode: statusCode, isSuccess: isSuccess, error: error);
 }

@@ -18,10 +18,10 @@ class ProductDetailsProvider extends AppProvider {
         return ProductDetailsResponse(product: product);
       } catch (e) {
         debugPrint('Product detail parsing error: $e');
-        return const ProductDetailsResponse(error: 'Something went wrong');
+        return ProductDetailsResponse(error: 'Something went wrong', statusCode: response.statusCode);
       }
     }
-    return ProductDetailsResponse(error: response.error);
+    return ProductDetailsResponse(error: response.error, statusCode: response.statusCode, isSuccess: response.isSuccess);
   }
 
   static ProductDetail _parseProductDetails(String? body) {

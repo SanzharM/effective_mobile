@@ -36,10 +36,14 @@ class MainScreenProvider extends AppProvider {
       try {
         return await compute(_parseMainScreen, response.response?.body);
       } catch (e) {
-        return MainScreenResponse(error: e.toString());
+        return MainScreenResponse(error: e.toString(), statusCode: response.statusCode);
       }
     }
-    return MainScreenResponse(error: response.error ?? 'Something went wrong');
+    return MainScreenResponse(
+      error: response.error ?? 'Something went wrong',
+      statusCode: response.statusCode,
+      isSuccess: response.isSuccess,
+    );
   }
 
   static MainScreenResponse _parseMainScreen(String? body) {

@@ -19,9 +19,9 @@ class CartProvider extends AppProvider {
       } catch (e) {
         debugPrint('Error parsing cart: $e');
       }
-      return const CartResponse(error: 'Something went wrong');
+      return CartResponse(error: 'Something went wrong', isSuccess: response.isSuccess, statusCode: response.statusCode);
     }
-    return CartResponse(error: response.error);
+    return CartResponse(error: response.error, isSuccess: response.isSuccess, statusCode: response.statusCode);
   }
 
   static Cart _parseCart(String? body) {
