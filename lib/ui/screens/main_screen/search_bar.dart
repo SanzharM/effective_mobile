@@ -30,6 +30,8 @@ class _SearchBarState extends State<SearchBar> {
               child: AppTextField(
                 text: _searchingText,
                 hintText: 'Search',
+                maxLines: 1,
+                maxLength: 100,
                 prefixIcon: const Icon(CupertinoIcons.search, color: AppColors.primary),
               ),
             ),
